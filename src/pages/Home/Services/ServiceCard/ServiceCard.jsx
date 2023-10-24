@@ -1,14 +1,18 @@
+import { AiOutlineArrowRight } from "react-icons/ai";
+
 const ServiceCard = ({ service }) => {
   return (
-    <div className="card w-96 bg-base-100 shadow-xl">
-      <figure className="px-10 pt-10">
-        <img src={service.img} alt="" className="rounded-xl" />
+    <div className="card w-full bg-base-100 shadow-xl border p-5">
+      <figure className="h-[280px]">
+        <img src={service?.img} alt="" className="rounded-xl h-full" />
       </figure>
-      <div className="card-body items-center text-center">
-        <h2 className="card-title">Shoes!</h2>
-        <p>If a dog chews shoes whose shoes does he choose?</p>
-        <div className="card-actions">
-          <button className="btn btn-primary">Buy Now</button>
+      <div className="  pt-4">
+        <h2 className="card-title">{service?.title}</h2>
+        <div className="flex items-center justify-between">
+          <p className="text-[#FF3811] font-bold">Price: ${service?.price}</p>
+          <button className="btn btn-circle">
+            <AiOutlineArrowRight className="text-[#FF3811] text-xl" />
+          </button>
         </div>
       </div>
     </div>
