@@ -2,17 +2,19 @@ import { Link } from "react-router-dom";
 import img from "../../assets/images/login/login.svg";
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
-const Login = () => {
-  const { signInUser } = useContext(AuthContext);
-  const handleLogin = (e) => {
+
+const SignUp = () => {
+  const { createUser } = useContext(AuthContext);
+  const handleSignUp = (e) => {
     e.preventDefault();
     const form = e.target;
+    const name = form.name.value;
     const email = form.email.value;
     const pass = form.pass.value;
-    const user = { email, pass };
+    const user = { name, email, pass };
     console.log(user);
 
-    signInUser(email, pass)
+    createUser(email, pass)
       .then((result) => {
         console.log(result.user);
       })
@@ -25,9 +27,21 @@ const Login = () => {
           <img src={img} alt="" />
         </div>
         <div className="card  w-full max-w-sm shadow-2xl md:w-1/2 border">
-          <form onSubmit={handleLogin} className="card-body">
-            <h1 className="text-5xl font-bold">Login now!</h1>
+          <form onSubmit={handleSignUp} className="card-body">
+            <h1 className="text-5xl font-bold">Sign up now!</h1>
 
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Name</span>
+              </label>
+              <input
+                type="text"
+                placeholder="Name"
+                className="input input-bordered"
+                name="Name"
+                required
+              />
+            </div>
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
@@ -61,9 +75,9 @@ const Login = () => {
               <button className="btn btn-primary">Login</button>
             </div>
             <p className="text-center">
-              New to Cars Doctor?{" "}
-              <Link to="/signUp" className="text-orange-700 font-bold">
-                Sign Up
+              You have already an account?{" "}
+              <Link to="/login" className="text-orange-700 font-bold">
+                Login
               </Link>
             </p>
           </form>
@@ -73,4 +87,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;
