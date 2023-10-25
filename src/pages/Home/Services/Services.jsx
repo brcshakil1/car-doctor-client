@@ -5,11 +5,11 @@ const Services = () => {
   const [services, setServices] = useState([]);
 
   useEffect(() => {
-    fetch("services.json")
+    fetch("http://localhost:4000/services")
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, []);
-  console.log(services);
+
   return (
     <div className="my-14">
       <div className="text-center space-y-3">
