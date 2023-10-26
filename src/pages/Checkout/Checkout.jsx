@@ -21,7 +21,6 @@ const Checkout = () => {
       price,
       service: service?.title,
     };
-    console.log(user);
 
     fetch(`http://localhost:4000/checkout`, {
       method: "POST",
@@ -39,7 +38,7 @@ const Checkout = () => {
   };
   return (
     <div>
-      <h2>{service?.title}</h2>
+      <h2 className="text-3xl text-center">{service?.title}</h2>
       <form onSubmit={handleSubmit} className="card-body">
         <div className="grid grid-cols-2 gap-4 mb-6">
           <div className="form-control">

@@ -27,7 +27,6 @@ const Bookings = () => {
   };
 
   const handleConfirm = (id) => {
-    console.log("confirm", id);
     fetch(`http://localhost:4000/checkout/${id}`, {
       method: "PATCH",
       headers: { "content-type": "application/json" },
