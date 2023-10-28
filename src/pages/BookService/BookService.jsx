@@ -22,7 +22,6 @@ const BookService = () => {
       img: service?.img,
     };
 
-    console.log(booking);
     fetch("http://localhost:4000/bookings", {
       method: "POST",
       headers: { "content-type": "application/json" },
