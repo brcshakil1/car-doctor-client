@@ -31,7 +31,7 @@ const Navbar = () => {
       {user ? (
         <>
           <li>
-            <Link to="/bookings">Bookings</Link>
+            <Link to="/bookings">My Bookings</Link>
           </li>
           <li>
             <button onClick={handleLogout}>Logout</button>
